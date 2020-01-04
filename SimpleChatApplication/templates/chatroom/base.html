@@ -1,0 +1,93 @@
+{% load static %}
+{% static "images" as baseUrl%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ChatApp</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'styles/main_styles.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'styles/responsive.css' %}">
+
+</head>
+
+<body>
+		<!-- Header -->
+
+		<header class="header">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							{% comment %} <div class="header_content_inner d-flex flex-row align-items-end justify-content-start"> {% endcomment %}
+								<div class="logo"><a href="index.html">ChatApp</a></div>
+								<nav class="main_nav">
+									<ul class="d-flex flex-row align-items-start justify-content-start">
+										{% if user.is_authenticated %}
+										<li><a href> Hello, {{ user.first_name }} </a></li>
+										<li><a href="/accounts/logout">Logout</a></li>
+										<li><a href="reset/resetpassword">Reset Password</a></li>
+										{% else %}
+										<li><a href="/accounts/register">Registration</a></li>
+										<li><a href="/accounts/login">Login</a></li>
+										{% endif %}
+
+									</ul>
+								</nav>
+								<div class="header_phone ml-auto">ChatApp </div>
+
+								<!-- Hamburger -->
+
+								<div class="hamburger ml-auto">
+									<i class="fa fa-bars" aria-hidden="true"></i>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header_social d-flex flex-row align-items-center justify-content-start">
+				<ul class="d-flex flex-row align-items-start justify-content-start">
+	
+				</ul>
+			</div>
+		</header>
+
+
+		<!-- Destinations -->
+
+		<div class="destinations" id="destinations">
+		<div class="destinations" id="destinations">
+		<div class="destinations" id="destinations">
+					<div class="col text-center">
+						<div class="section_subtitle">simply amazing </div>
+						<div class="section_title">
+						<div class="section_title">
+							<h2>  ChatApp  </h2>
+						</div>
+					</div>
+				</div>
+				<div class="row destinations_row">
+					<div class="col">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+	<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+	<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+	<script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
+	<script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
+	<script src="{% static 'plugins/easing/easing.js' %}"></script>
+	<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+	<script src="{% static 'js/custom.js' %}"></script>
+	{% block content %}
+	{% endblock %}
+</body>
+
+</html>
