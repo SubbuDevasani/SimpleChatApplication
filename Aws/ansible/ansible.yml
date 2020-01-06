@@ -41,9 +41,10 @@
       command: cd /home/ubuntu/chatproject/venv; source bin/activate
       command: /home/ubuntu/chatproject/venv/bin/pip3 install -r /home/ubuntu/chatproject/SimpleChatApplication/requirments.txt
 
-    - name: pip installation
+    - name: pip installation-1
       command: pip3 install psycopg2
       command: pip3 install channels
+    - name: pip installation-2
       command: pip3 install gunicorn
       command: pip3 install django bcrypt django-extensions
 
@@ -96,7 +97,7 @@
          server_name _;
          location = /favicon.ico { access_log off; log_not_found off; }
          location /static/ {
-              root/home/ubuntu/chatproject/SimpleChatApplication;
+              root /home/ubuntu/chatproject/SimpleChatApplication/;
             }
          location / {
              include proxy_params;
@@ -104,10 +105,13 @@
            }
          }
     
-    - name: configuraing nginx
+    - name: configuraing nginx-1
       command: ln -s /etc/nginx/sites-available/chatapp /etc/nginx/sites-enabled
+     
+    - name: configuraging nginx-2
       command:  nginx -t
-      command: rm /etc/nginx/sites-enabled/default
+    - name: configuration nginx-3
+      command: rm /etc/nginx/sites-enabled/default  
     - name: gunicorn congiuration
       command: systemctl daemon-reload
       command: systemctl start gunicorn
@@ -116,12 +120,9 @@
     - name: restart service nginx
       systemd:
         state: restarted
-        name: nginx
+        name: gunicorn
 
     - name: restart service gunicorn again
       systemd:
         state: restarted
-        name: gunicorn
-
-
-
+        name: nginx
