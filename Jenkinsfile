@@ -4,7 +4,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh ''' #!/bin/bash
-                echo Branch :: master
+                echo Branch :: Production
 		echo Bulding testing environment
                 '''
             }
