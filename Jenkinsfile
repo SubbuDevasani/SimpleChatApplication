@@ -6,7 +6,7 @@ pipeline {
                 sh ''' #!/bin/bash
                 echo Branch :: Production
 		echo Bulding testing environment
-		input message: 'Testing is completed (click "proceed" to continue)
+		input message: 'Testing is completed ? (click "proceed" to continue)
                 '''
             }
         }
