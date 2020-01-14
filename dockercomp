@@ -1,0 +1,40 @@
+version: '3'
+services:
+  database:
+    image: postgres:latest 
+    hostname: database
+    container_name: database
+    environment:
+      POSTGRES_USER: manidevasani
+      POSTGRES_PASSWORD: Manikanta
+      POSTGRES_DB: chatapp-project
+    networks:
+    - network
+
+
+  chatproject:
+    build:
+      context: /home/ubuntu/
+    hostname: chatproject
+    container_name: chatproject
+    networks:
+    - network
+    depends_on: 
+    - database
+
+
+  server:
+    build:
+      context: server/
+    ports:
+    - "80:80"
+    hostname: server
+    networks:
+    - network
+    depends_on:
+    - chatproject
+
+
+networks:
+  network:
+    driver: bridge  

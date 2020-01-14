@@ -1,8 +1,0 @@
-    Deployment: 
-      Description: "Code deployment using cloudformation"
-      IgnoreApplicationStopFailures: true
-      Revision:
-        RevisionType: GitHub
-        GitHubLocation:
-          CommitId: 07579bb186c0227edc5f9e63eea4ef251fd191a6
-          Repository: ManiDevasani/ChatApp
