@@ -90,10 +90,10 @@ CHANNEL_LAYERS = {
 DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgresql',
+        'NAME': 'chatapp',
         'USER': 'manidevasani',
         'PASSWORD': 'Manikanta',
-        'HOST': 'clouddb.c6jf9pcewg4n.ap-south-1.rds.amazonaws.com',
+        'HOST': 'db',
         'PORT': '5432',
        }
 }
@@ -146,6 +146,6 @@ LOGOUT_REDIRECT_URL = 'home'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'mani.devasani@gmail.com'
-EMAIL_HOST_PASSWORD = 'Mani@24697'
+EMAIL_HOST_USER = 'kishoredola311@gmail.com'
+EMAIL_HOST_PASSWORD = 'Manikanta@2'
 EMAIL_PORT = 587
