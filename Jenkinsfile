@@ -13,10 +13,10 @@ pipeline {
             }
         }
         stage('Status') {
-            steps {
-                sh ''' #!/bin/bash
-                 echo done
-                '''
+            agent {
+                docker {
+                    { image 'chatapp' }
+                }
             }
         }
     }
