@@ -16,7 +16,7 @@ pipeline {
                 sh ''' #!/bin/bash           
                   ssh -i /var/lib/jenkins/.ssh/id_rsa ubuntu@10.0.3.19 "
                   cd /home/ubuntu/
-                  docker rm -f chatapp
+                  docker rm -f chatproject
                   docker pull ubuntu:5000/chatapp:latest
                   docker run --name chatapp --network ubuntu_network -d -p 80:8000 ubuntu:5000/chatapp:latest
                   docker restart db
