@@ -8,7 +8,7 @@ pipeline {
                   docker build --build-arg build_num=12 -t chatapp .
                   docker tag chatapp:latest ubuntu:5000/chatapp:latest
                   docker push ubuntu:5000/chatapp:latest
-                  '''
+                  ''' 
             }
         }
          stage('Build-Container') {
