@@ -14,13 +14,14 @@ pipeline {
          stage('Build-Container') {
             steps {
                 sh ''' #!/bin/bash           
-                  ssh -i /var/lib/jenkins/.ssh/id_rsa ubuntu@10.0.3.19
+                  ssh -i /var/lib/jenkins/.ssh/id_rsa ubuntu@10.0.3.19 "
                   cd /home/ubuntu/
                   docker pull ubuntu:5000/chatapp:latest
                   docker run --name chatapp --network net-access -d -p 80:8000 ubuntu:5000/chatapp:latest
                   docker restart db
                   docker restart nginx
-                  docker restart chatapp 
+                  docker restart chatapp
+                  "
                 '''
             }
         }
