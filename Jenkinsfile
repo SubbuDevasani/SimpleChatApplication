@@ -6,8 +6,9 @@ pipeline {
                 sh ''' #!/bin/bash
                   cd /var/lib/jenkins/workspace/docker-sample/
                   docker build --build-arg build_num=12 -t chatapp .
-                  docker tag chatapp:latest ubuntu:5000/chatapp:latest
-                  docker push ubuntu:5000/chatapp:latest
+                  docker login -u manidevasani -p manisubbu@24697                                    
+                  docker login -u manidevasani -p manisubbu@24697
+                  docker push manidevasani/chatapp
                   ''' 
             }
         }
@@ -17,7 +18,7 @@ pipeline {
                   ssh -i /var/lib/jenkins/.ssh/id_rsa ubuntu@10.0.3.19 "
                   cd /home/ubuntu/
                   docker rm -f chatproject
-                  docker pull ubuntu:5000/chatapp:latest
+                  docker pull manidevasani/chatapp:latest
                   docker run --name chatproject  --network ubuntu_network -d -p 80:8000 ubuntu:5000/chatapp:latest
                   docker restart db
                   docker restart ubuntu_nginx_1
