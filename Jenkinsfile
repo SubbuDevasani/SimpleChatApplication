@@ -18,6 +18,7 @@ pipeline {
                   ssh -i /var/lib/jenkins/.ssh/id_rsa ubuntu@10.0.3.19 "
                   cd /home/ubuntu/
                   docker rm -f chatproject
+                  docker login -u manidevasani -p manisubbu@24697
                   docker pull manidevasani/chatproject:$BUILD_NUMBER
                   docker run --name chatproject  --network ubuntu_network -d -p 80:8000 manidevasani/chatprject:$BUILD_NUMBER
                   docker restart db
