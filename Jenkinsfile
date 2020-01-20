@@ -5,7 +5,8 @@ pipeline {
             steps {
                 sh ''' #!/bin/bash
                   cd /var/lib/jenkins/workspace/docker-sample/
-                  docker build --build-arg build_num=12 -t chatapp:$BUILD_NUMBER .
+                  docker rmi -f chatapp
+                  docker build --build-arg build_num=12 -t chatapp .
                   docker login -u manidevasani -p manisubbu@24697                                    
                   docker tag chatapp:$BUILD_NUMBER manidevasani/chatproject:$BUILD_NUMBER
                   docker push manidevasani/chatproject:$BUILD_NUMBER
@@ -20,7 +21,7 @@ pipeline {
                   docker rm -f chatproject
                   docker login -u manidevasani -p manisubbu@24697
                   docker pull manidevasani/chatproject:$BUILD_NUMBER
-                  docker run --name chatproject  --network ubuntu_network -d -p 80:8000 manidevasani/chatprject:$BUILD_NUMBER
+                  docker run --name chatproject  --network ubuntu_network -d -p 80:8000 manidevasani/chatproject:$BUILD_NUMBER
                   docker restart db
                   docker restart ubuntu_nginx_1
                   docker restart chatproject
