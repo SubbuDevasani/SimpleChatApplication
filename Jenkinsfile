@@ -6,7 +6,7 @@ pipeline {
                 sh ''' #!/bin/bash
                   cd /var/lib/jenkins/workspace/docker-sample/
                   docker rmi -f chatapp
-                  docker build --build-arg build_num=12 -t chatapp .
+                  docker build --build-arg build_num=12 -t chatapp:$BUILD_NUMBER .
                   docker login -u manidevasani -p manisubbu@24697    
                 # pushing to the Docker-hub
                   docker tag chatapp:$BUILD_NUMBER manidevasani/chatproject:$BUILD_NUMBER
