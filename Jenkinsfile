@@ -8,7 +8,7 @@ pipeline {
                   docker build --build-arg build_num=12 -t chatapp:$BUILD_NUMBER .
                   docker login -u manidevasani -p manisubbu@24697                                    
                   docker tag chatapp:$BUILD_NUMBER manidevasani/chatproject:$BUILD_NUMBER
-                  docker push manidevasani/chatapp:$BUILD_NUMBER
+                  docker push manidevasani/chatproject:$BUILD_NUMBER
                   ''' 
             }
         }
