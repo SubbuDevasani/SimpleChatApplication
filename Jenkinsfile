@@ -7,7 +7,7 @@ pipeline {
                   cd /var/lib/jenkins/workspace/docker-sample/
                   docker build --build-arg build_num=12 -t chatapp .
                   docker login -u manidevasani -p manisubbu@24697                                    
-                  docker login -u manidevasani -p manisubbu@24697
+                  docker tag chatapp:latest manidevasani/chatapp
                   docker push manidevasani/chatapp
                   ''' 
             }
