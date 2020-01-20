@@ -20,7 +20,7 @@ pipeline {
                   docker pull ubuntu:5000/chatapp:latest
                   docker run --name chatproject  --network ubuntu_network -d -p 80:8000 ubuntu:5000/chatapp:latest
                   docker restart db
-                  docker restart nginx
+                  docker restart ubuntu_nginx_1
                   docker restart chatproject
                   "
                 '''
