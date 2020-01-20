@@ -19,7 +19,7 @@ pipeline {
                   cd /home/ubuntu/
                   docker rm -f chatproject
                   docker pull manidevasani/chatapp:latest
-                  docker run --name chatproject  --network ubuntu_network -d -p 80:8000 ubuntu:5000/chatapp:latest
+                  docker run --name chatproject  --network ubuntu_network -d -p 80:8000 manidevasani/chatapp:latest
                   docker restart db
                   docker restart ubuntu_nginx_1
                   docker restart chatproject
