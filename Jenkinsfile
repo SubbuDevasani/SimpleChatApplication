@@ -21,7 +21,7 @@ pipeline {
                 # Pushing to the  Aws-ECR
                   $(aws ecr get-login --no-include-email --region ap-south-1)
                   docker tag chatapp:$BUILD_NUMBER 416604440517.dkr.ecr.ap-south-1.amazonaws.com/chatapp:latest
-                  docker push 416604440517.dkr.ecr.ap-south-1.amazonaws.com/chatapp:BUILD_NUMBER 
+                  docker push 416604440517.dkr.ecr.ap-south-1.amazonaws.com/chatapp:$BUILD_NUMBER 
                   docker tag chatapp:latest 416604440517.dkr.ecr.ap-south-1.amazonaws.com/chatapp:latest
                   docker push 416604440517.dkr.ecr.ap-south-1.amazonaws.com/chatapp:latest
                   ''' 
