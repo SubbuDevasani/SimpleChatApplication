@@ -9,3 +9,4 @@ EXPOSE 8000
 RUN chmod +x runserver.sh
 CMD ["./runserver.sh"]
 ARG build_num
+ 
