@@ -25,6 +25,7 @@ pipeline {
                 # docker push 416604440517.dkr.ecr.ap-south-1.amazonaws.com/chatapp:$BUILD_NUMBER 
                   docker tag chatapp:latest 416604440517.dkr.ecr.ap-south-1.amazonaws.com/chatapp:latest
                   docker push 416604440517.dkr.ecr.ap-south-1.amazonaws.com/chatapp:latest
+                  aws ecs update-service --cluster ChatApp-Ec2 --service Ec2-Serice --force-new-deployment
                   ''' 
             }
         }
