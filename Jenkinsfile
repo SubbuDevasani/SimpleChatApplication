@@ -4,7 +4,7 @@ pipeline {
         stage('Build-image') {
             steps {
                 sh ''' #!/bin/bash
-                  cd /var/lib/jenkins/workspace/docker-sample/
+                  cd /var/lib/jenkins/workspace/chatapp/
                   docker rmi -f chatapp
                 # docker build -t chatapp:$BUILD_NUMBER .
                   docker build -t chatapp:latest .
