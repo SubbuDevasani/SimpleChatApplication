@@ -6,7 +6,6 @@ pipeline {
                 sh ''' #!/bin/bash
                   cd /var/lib/jenkins/workspace/chatapp/
                 # docker rmi -f chatapp
-                  sudo setfacl -m user:$USER:rw /var/run/docker.sock
                 # docker build -t chatapp:$BUILD_NUMBER .
                   docker build -t chatapp:latest .
                 # pushing to the Docker-hub
