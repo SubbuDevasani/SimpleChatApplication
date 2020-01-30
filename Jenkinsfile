@@ -31,7 +31,7 @@ pipeline {
                   sleep 20
                   kubectl scale deployment chatapp --replicas=2 -n default
                   "
-                  ''' 
+                  '''  
             }
         }
     }
