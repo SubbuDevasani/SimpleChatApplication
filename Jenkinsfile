@@ -30,7 +30,7 @@ pipeline {
                   #kubectl scale deployment chatapp --replicas=0 -n default
                   #sleep 20
                   #kubectl scale deployment chatapp --replicas=2 -n default
-                  kubectl rollout restart deployment chatapp
+                  kubectl rollout restart deployment chatapp -n default
                   "
                   '''  
             }
