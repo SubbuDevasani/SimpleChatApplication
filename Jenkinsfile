@@ -26,11 +26,12 @@ pipeline {
                   docker tag chatapp:latest 416604440517.dkr.ecr.ap-south-1.amazonaws.com/chatapp:latest
                   docker push 416604440517.dkr.ecr.ap-south-1.amazonaws.com/chatapp:latest
                 # aws ecs update-service --cluster ChatApp-Ec2 --service Ec2-Serice --force-new-deployment
-                  #ssh -i /var/lib/jenkins/.ssh/id_rsa ubuntu@10.0.3.217 "
+                  ssh -i /var/lib/jenkins/.ssh/id_rsa ubuntu@10.0.3.217 "
                   #kubectl scale deployment chatapp --replicas=0 -n default
                   #sleep 20
                   #kubectl scale deployment chatapp --replicas=2 -n default
-                  #"
+                  kubectl rollout restart deployment chatapp
+                  "
                   '''  
             }
         }
