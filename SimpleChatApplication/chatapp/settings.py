@@ -1,4 +1,4 @@
-""""
+"""
 -----------------------------------------------------------------
 Django settings for chatapp project.
 
@@ -15,7 +15,6 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -40,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
 ]
 
 MIDDLEWARE = [
@@ -54,11 +52,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'chatapp.urls'
-#SETTINGS_PATH = os.path.normpath(os.path.dirname(__file__))
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,32 +75,26 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-           "hosts": [('0.0.0.0', 6379)],
+            "hosts": [('0.0.0.0', 6379)],
         },
     },
 }
 
-
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
- 
 DATABASES = {
-        'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgresql',
+        'NAME': 'chatapp',
         'USER': 'manidevasani',
         'PASSWORD': 'Manikanta',
-        'HOST': 'database-3.c6jf9pcewg4n.ap-south-1.rds.amazonaws.com',
+        'HOST': 'db',
         'PORT': '5432',
-       }
+    }
 }
-
- 
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
-   
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -118,10 +110,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -132,17 +122,16 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
- os.path.join(BASE_DIR, 'static'),
-)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 STATIC_ROOT = os.path.join(BASE_DIR, 'tmp/SimpleChatApplication/django')
+
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
@@ -153,3 +142,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'kishoredola311@gmail.com'
 EMAIL_HOST_PASSWORD = 'Manikanta@2'
 EMAIL_PORT = 587
+
